@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Caveat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -15,9 +16,8 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        html, body {
-            overflow-x: hidden;
-            overflow-y: auto;
+        html {
+            overflow-y: scroll;
             height: 100%;
         }
 
@@ -28,7 +28,8 @@
             min-height: 100vh;
             line-height: 1.6;
             position: relative;
-            touch-action: pan-y;
+            overflow-x: hidden;
+            height: auto;
         }
 
         .floating-hearts {
@@ -65,7 +66,6 @@
             backdrop-filter: blur(10px);
             width: 100%;
             min-height: auto;
-            overflow: visible;
         }
 
         @keyframes gentleAppear {
@@ -171,7 +171,6 @@
             position: relative;
             z-index: 1;
             width: 100%;
-            overflow: visible;
         }
 
         .section-title {
@@ -358,10 +357,6 @@
             body {
                 -webkit-overflow-scrolling: touch;
             }
-            
-            .love-letter, .memories-section {
-                -webkit-transform: translate3d(0, 0, 0);
-            }
         }
     </style>
 </head>
@@ -404,6 +399,54 @@
                 <div class="closing">
                     <div class="kisses">😘😘😘😘😘😘😘😘😘</div>
                     <span class="signature">Forever Yours,<br>Francis ❤️❤️❤️</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="memories-section">
+        <h2 class="section-title">Our Beautiful Memories</h2>
+        <div class="photos-grid">
+            <div class="photo-item">
+                <div class="photo-placeholder">
+                    <i class="fas fa-heart"></i>
+                    <div>Photo 1</div>
+                    <small>Our memory</small>
+                </div>
+            </div>
+            <div class="photo-item">
+                <div class="photo-placeholder">
+                    <i class="fas fa-heart"></i>
+                    <div>Photo 2</div>
+                    <small>Special moment</small>
+                </div>
+            </div>
+            <div class="photo-item">
+                <div class="photo-placeholder">
+                    <i class="fas fa-heart"></i>
+                    <div>Photo 3</div>
+                    <small>Together forever</small>
+                </div>
+            </div>
+            <div class="photo-item">
+                <div class="photo-placeholder">
+                    <i class="fas fa-heart"></i>
+                    <div>Photo 4</div>
+                    <small>My love</small>
+                </div>
+            </div>
+            <div class="photo-item">
+                <div class="photo-placeholder">
+                    <i class="fas fa-heart"></i>
+                    <div>Photo 5</div>
+                    <small>Always with you</small>
+                </div>
+            </div>
+            <div class="photo-item">
+                <div class="photo-placeholder">
+                    <i class="fas fa-heart"></i>
+                    <div>Photo 6</div>
+                    <small>Forever mine</small>
                 </div>
             </div>
         </div>
@@ -478,7 +521,6 @@
                 let x, y;
                 
                 if (e.type === 'touchstart') {
-                    e.preventDefault();
                     x = e.touches[0].clientX;
                     y = e.touches[0].clientY;
                 } else {
@@ -490,17 +532,12 @@
             }
             
             document.addEventListener('click', handleInteraction);
-            document.addEventListener('touchstart', handleInteraction, { passive: false });
+            document.addEventListener('touchstart', handleInteraction);
             
             createFloatingHearts();
             
             setInterval(createFloatingHearts, 25000);
-            
-            document.body.style.overflowY = 'auto';
-            document.documentElement.style.overflowY = 'auto';
         });
     </script>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </body>
 </html>
